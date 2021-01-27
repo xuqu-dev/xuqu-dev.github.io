@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/logo.jpg">
   <link rel="icon" type="image/png" href="/img/favicon.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
@@ -232,24 +232,24 @@
 </blockquote>
 <p><img src="https://yec-dev.oss-cn-guangzhou.aliyuncs.com/DeepinScreenshot_select-area_20201218214959.png" srcset="/img/loading.gif"></p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>傻瓜式安装法，不管什么需要的不需要的全安装上，推荐直接安装 <code>fcitx5-im</code>：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo pacman -S fcitx5-im<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo pacman -S fcitx5-im<br></code></pre></div></td></tr></table></figure>
 <p>其中包含了 <code> fcitx5</code> 、 <code>fcitx5-configtool</code> 、 <code>fcitx5-gtk</code> 、<code>fcitx5-qt</code>，主体是一定要安装的，配置工具也是一定需要的，然后就是对 <code>qt</code> 程序和 <code>gtk</code> 界面的程序也要吧，所以说这里是全要的….</p>
 <h3 id="安装中文输入法引擎"><a href="#安装中文输入法引擎" class="headerlink" title="安装中文输入法引擎"></a>安装中文输入法引擎</h3><p>没啥好说的，虽然还有个 <code>fcitx5-rime</code> 可以选择，但我选择这个。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo pacman -S fcitx5-chinese-addons<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo pacman -S fcitx5-chinese-addons<br></code></pre></div></td></tr></table></figure>
 
 
 <h3 id="词库安装"><a href="#词库安装" class="headerlink" title="词库安装"></a>词库安装</h3><p>虽然我也不知道起没起作用，反正现实是感觉比 <code>fcitx4</code> 好多了。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo pacman -S fcitx5-pinyin-zhwiki<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo pacman -S fcitx5-pinyin-zhwiki<br></code></pre></div></td></tr></table></figure>
 
 
 <h3 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h3><p>没有别的选择，这个比较顺眼</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo pacman -S fcitx5-material-color<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo pacman -S fcitx5-material-color<br></code></pre></div></td></tr></table></figure>
 
 
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>傻瓜式配置，新建 <code>～/.pam_environment</code>，在其中输入：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">GTK_IM_MODULE DEFAULT=fcitx<br>QT_IM_MODULE  DEFAULT=fcitx<br>XMODIFIERS    DEFAULT=\@im=fcitx<br>SDL_IM_MODULE DEFAULT=fcitx<br></code></pre></td></tr></table></figure>
+<figure class="highlight text"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs text">GTK_IM_MODULE DEFAULT=fcitx<br>QT_IM_MODULE  DEFAULT=fcitx<br>XMODIFIERS    DEFAULT=\@im=fcitx<br>SDL_IM_MODULE DEFAULT=fcitx<br></code></pre></div></td></tr></table></figure>
 <p>或者是使用 <code>.xinitrc</code> ，在其中添加：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell">export QT_IM_MODULE=ibus<br><span class="hljs-meta">#</span><span class="bash"> <span class="hljs-built_in">export</span> QT_IM_MODULE=fcitx</span><br>export GTK_IM_MODULE=fcitx<br>export XMODIFIERS=&quot;@im=fcitx&quot;<br>export SDL_IM_MODULE=fcitx<br>fcitx5 &amp;<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">export QT_IM_MODULE=ibus<br><span class="hljs-meta">#</span><span class="bash"> <span class="hljs-built_in">export</span> QT_IM_MODULE=fcitx</span><br>export GTK_IM_MODULE=fcitx<br>export XMODIFIERS=&quot;@im=fcitx&quot;<br>export SDL_IM_MODULE=fcitx<br>fcitx5 &amp;<br></code></pre></div></td></tr></table></figure>
 <p>然后就 OK 了，注销用户重新登陆即可。</p>
 <p>注意这里添加了<code>export QT_IM_MODULE=ibus</code> 是因为 wps 不能输入中文，老 bug 了，在 github 的 issue 中看到是 七月份就有了，现在也没看到解决，arch wiki 是说将这个变量设置为  <code>fcitx5</code>，但我发现没有什么作用…</p>
 <p>虽然平时也用不到 wps，但是现在….</p>
@@ -265,7 +265,7 @@
 <p><del>首先是环境变量 <code>QT_IM_MODULE</code> 不能为 <code>ibus</code> …</del></p>
 <p>其次就是解决左下角偏移的问题（强迫症人不了了）</p>
 <p>首先是下载 <a target="_blank" rel="noopener" href="https://github.com/RikudouPatrickstar/JetBrainsRuntime-for-Linux-x64">JetBrainsRuntime-for-Linux-x64</a> 编译好的 jbr，然后将其解压到一个目录，最后在 <code>idea.sh</code> 添加：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">export IDEA_JDK=/home/xuqu/.local/share/JetBrains/JetBrainsRuntime<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">export IDEA_JDK=/home/xuqu/.local/share/JetBrains/JetBrainsRuntime<br></code></pre></div></td></tr></table></figure>
 <p><img src="https://yec-dev.oss-cn-guangzhou.aliyuncs.com/DeepinScreenshot_select-area_20201219173046.png" srcset="/img/loading.gif"></p>
 <h3 id="无法输入中文标点符号"><a href="#无法输入中文标点符号" class="headerlink" title="无法输入中文标点符号"></a>无法输入中文标点符号</h3><blockquote>
 <p>暂无复现，暂无解决方案</p>
